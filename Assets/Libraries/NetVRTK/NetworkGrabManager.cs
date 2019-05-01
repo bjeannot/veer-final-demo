@@ -40,6 +40,9 @@
         }
 
         private void HandleGrab(object sender, InteractableObjectEventArgs e) {
+            var rb = gameObject.GetComponent<Rigidbody>();
+            rb.isKinematic = true;
+            rb.useGravity = false;
             if (nref.IsPhotonView) {
                 nref.GetPhotonView().TransferOwnership(PhotonNetwork.player);
             }
@@ -51,6 +54,9 @@
         }
 
         private void HandleUngrab(object sender, InteractableObjectEventArgs e) {
+            var rb = gameObject.GetComponent<Rigidbody>();
+            rb.isKinematic = false;
+            rb.useGravity = true;
             InitState(0);
             SendState();
         }
