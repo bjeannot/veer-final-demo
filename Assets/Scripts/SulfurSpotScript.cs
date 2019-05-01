@@ -11,14 +11,14 @@ public class SulfurSpotScript : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        PrizeElement.SetActive(false);
+        PrizeElement.transform.position = new Vector3(0, 100, 0);
 	}
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.Equals(KeyElement))
         {
-            PrizeElement.SetActive(true);
+            PrizeElement.transform.position = new Vector3(-1.646f, 0.587f, -0.012f);
         }
     }
 }
